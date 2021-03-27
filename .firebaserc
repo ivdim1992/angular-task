@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-project-task": {
+      "hosting": {
+        "angular-task": [
+          "angular-project-task"
+        ]
+      }
+    }
+  }
+}
