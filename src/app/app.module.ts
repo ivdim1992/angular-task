@@ -8,6 +8,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "@env/environment";
+import { RootStoreModule } from "./+store";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,6 +19,7 @@ import { environment } from "@env/environment";
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    RootStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
