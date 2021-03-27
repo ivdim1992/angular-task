@@ -1,7 +1,6 @@
-import { InjectionToken } from '@angular/core';
 import * as fromRouter from '@ngrx/router-store';
-import { Action, ActionReducerMap, createFeatureSelector } from '@ngrx/store';
-import { ISerializedRouterState } from '../router-serializer';
+import { Action, ActionReducer, ActionReducerMap } from '@ngrx/store';
+import { InjectionToken } from '@angular/core';
 
 export const routerKey = 'router';
 
@@ -14,7 +13,3 @@ export const ROOT_REDUCER = new InjectionToken<ActionReducerMap<State, Action>>(
     router: fromRouter.routerReducer,
   }),
 });
-
-export const gerRouterState = createFeatureSelector<State, fromRouter.RouterReducerState<ISerializedRouterState>>(
-  routerKey
-);
