@@ -4,4 +4,6 @@ export interface IEmployee extends IBaseEntity {
   firstName: string;
   lastName: string;
   name: string;
+  isInTheCompany: boolean;
+  projects: any[];
 }
