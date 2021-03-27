@@ -17,6 +17,7 @@ const getObservable = (collection: AngularFirestoreCollection<any>) => {
 })
 export class AppComponent implements OnInit {
   employees = getObservable(this._fireStore.collection('employees'));
+  testVar: string;
 
   projects = this._fireStore.collection('projects').valueChanges();
 
