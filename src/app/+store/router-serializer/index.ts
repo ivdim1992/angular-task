@@ -1,1 +1,1 @@
-export * from "./route-serializer";
+export * from './route-serializer';

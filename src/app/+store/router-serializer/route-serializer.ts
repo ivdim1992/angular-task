@@ -1,10 +1,5 @@
-import {
-  ActivatedRouteSnapshot,
-  Data,
-  Params,
-  RouterStateSnapshot,
-} from "@angular/router";
-import { RouterStateSerializer } from "@ngrx/router-store";
+import { ActivatedRouteSnapshot, Data, Params, RouterStateSnapshot } from '@angular/router';
+import { RouterStateSerializer } from '@ngrx/router-store';
 
 export interface ISerializedRouterState {
   url: string;
@@ -22,8 +17,7 @@ export const mergeRouteParams = (
   }
 
   const currentParams = getter(route);
-  const primaryChild =
-    route.children.find((c) => c.outlet === "primary") || route.firstChild;
+  const primaryChild = route.children.find((c) => c.outlet === 'primary') || route.firstChild;
 
   return { ...currentParams, ...mergeRouteParams(primaryChild, getter) };
 };
@@ -34,16 +28,14 @@ export const mergeRouteData = (route: ActivatedRouteSnapshot): Data => {
   }
 
   const currentData = route.data;
-  const primaryChild =
-    route.children.find((c) => c.outlet === "primary") || route.firstChild;
+  const primaryChild = route.children.find((c) => c.outlet === 'primary') || route.firstChild;
   return { ...currentData, ...mergeRouteData(primaryChild) };
 };
 
-export class CustomRouterSerializer
-  implements RouterStateSerializer<ISerializedRouterState> {
+export class CustomRouterSerializer implements RouterStateSerializer<ISerializedRouterState> {
   public serialize(routerState: RouterStateSnapshot): ISerializedRouterState {
     return {
-      url: routerState.url || "/",
+      url: routerState.url || '/',
       params: mergeRouteParams(routerState.root, (r) => r.params),
       queryParams: mergeRouteParams(routerState.root, (r) => r.queryParams),
       data: mergeRouteData(routerState.root),
