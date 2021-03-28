@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import * as moment from 'moment';
 import { ProjectStatus } from '../enums';
 import { IProject } from '../interfaces';
 
@@ -15,4 +16,9 @@ export class ProjectCardComponent {
   @Output() completeProject = new EventEmitter();
   @Output() removeProject = new EventEmitter();
   projectStatus = ProjectStatus;
+
+  yearsInInThePast(): boolean {
+    const pastYears = moment(new Date(), 'YYYY-MM-DD').diff(new Date(this.project.createdAt), 'years');
+    return pastYears > 5 ? true : false;
+  }
 }

@@ -4,4 +4,5 @@ export interface IProject {
   status: string;
   price: number;
   employees: string[];
+  createdAt: string;
 }
