@@ -1,0 +1,29 @@
+<mat-drawer-container class="example-container" color="primary">
+  <mat-drawer mode="side" opened color="primary">
+    <nav>
+      <ul class="side-nav-navigation">
+        <li
+          class="side-nav-navigation__item font-weight"
+          fxLayout="row"
+          fxLayoutAlign="flex-start center"
+          routerLink="/projects"
+          routerLinkActive="active"
+        >
+          <span class="material-icons">note</span><span class="ml-10">Projects</span>
+        </li>
+        <li
+          class="side-nav-navigation__item font-weight"
+          fxLayout="row"
+          fxLayoutAlign="flex-start center"
+          routerLink="/employees"
+          routerLinkActive="active"
+        >
+          <span class="material-icons"> face </span><span class="ml-10">Employees</span>
+        </li>
+      </ul>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

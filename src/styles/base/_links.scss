@@ -1,0 +1,15 @@
+@import 'abstract/colors';
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+[routerLink],
+[ng-reflect-router-link] {
+  cursor: pointer;
+}

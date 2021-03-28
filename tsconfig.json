@@ -14,7 +14,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "@env/*": ["src/environments/*"]
+      "@env/*": ["src/environments/*"],
+      "@app/*": ["src/app/*"]
     }
   },
   "angularCompilerOptions": {
