@@ -10,6 +10,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '@env/environment';
 import { RootStoreModule } from './+store';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SideNavModule } from './resources/side-nav';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [
@@ -21,6 +23,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    SideNavModule,
+    // FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

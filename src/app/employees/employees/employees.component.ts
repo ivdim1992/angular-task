@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EmployeesStoreFacade } from '../+store/facades/employees.facade';
+import { IEmployee } from '../interfaces';
 
 @Component({
   selector: 'app-employees',
@@ -6,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees.component.scss'],
 })
 export class EmployeesComponent implements OnInit {
-  constructor() {}
+  employees$ = this._employeesStoreFacade.employees$;
+
+  constructor(private _employeesStoreFacade: EmployeesStoreFacade) {}
 
   ngOnInit(): boolean {
     return true;

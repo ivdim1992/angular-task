@@ -1,0 +1,22 @@
+@import 'abstract/colors';
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.mat-drawer {
+  width: 200px;
+}
+
+.side-nav-navigation {
+  padding: 2rem;
+  margin: 0;
+
+  &__item {
+    padding: 2rem 0;
+  }
+}
+
+.active {
+  color: $primary-color;
+}
