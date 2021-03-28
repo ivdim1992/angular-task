@@ -1,0 +1,14 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <div class="name">Name: {{ project.name }}</div>
+    <div class="status">Status: {{ project.status }}</div>
+    <div class="status">Price: {{ project.price | currency: 'USD' }}</div>
+    <div class="status">Employees: {{ project.employees.join(', ') }}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Edit</button>
+    <button mat-button>Delete</button>
+    <button *ngIf="project.status === projectStatus.NEW" mat-button>Start</button>
+    <button *ngIf="project.status === projectStatus.IN_PROGRESS" mat-button>Complete</button>
+  </mat-card-actions>
+</mat-card>

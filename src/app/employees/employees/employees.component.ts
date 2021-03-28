@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EmployeesStoreFacade } from '../+store/facades/employees.facade';
-import { IEmployee } from '../interfaces';
+import { EmployeesStoreFacade } from '../+store/facades';
 
 @Component({
   selector: 'app-employees',

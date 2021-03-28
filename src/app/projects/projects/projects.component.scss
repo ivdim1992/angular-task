@@ -1,0 +1,15 @@
+@import 'abstract/colors';
+
+.revenue {
+  padding: 1rem 3rem;
+
+  .create-btn {
+    color: $primary-color;
+    background-color: $light;
+  }
+}
+
+.projects-dashboard {
+  padding: 3rem;
+  flex-wrap: wrap;
+}

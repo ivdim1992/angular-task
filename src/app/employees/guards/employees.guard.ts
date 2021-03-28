@@ -10,7 +10,7 @@ export class EmployeesGuard implements CanActivate {
   public canActivate() {
     this.employeeStoreFacade.getEmployees();
 
-    return this.employeeStoreFacade.getVehiclesSuccess$.pipe(
+    return this.employeeStoreFacade.getEmployeesSuccess$.pipe(
       take(1),
       map((_) => true)
     );

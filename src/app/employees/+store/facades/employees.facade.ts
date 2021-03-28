@@ -10,7 +10,7 @@ import { EmployeesSelectors } from '../selectors';
 export class EmployeesStoreFacade {
   public readonly employees$ = this.store.pipe(select(EmployeesSelectors.selectEmployees));
 
-  public readonly getVehiclesSuccess$ = this.actions$.pipe(ofType(EmployeesActions.getEmployeesSuccess));
+  public readonly getEmployeesSuccess$ = this.actions$.pipe(ofType(EmployeesActions.getEmployeesSuccess));
 
   constructor(private readonly actions$: Actions, private readonly store: Store<fromEmployeesReducer.State>) {}
 
