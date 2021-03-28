@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProject } from '../interfaces';
 
 @Component({
@@ -6,9 +6,12 @@ import { IProject } from '../interfaces';
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.scss'],
 })
-export class ProjectsListComponent implements OnInit {
+export class ProjectsListComponent {
   @Input() public projects: IProject[];
   @Input() public title: string;
 
-  public ngOnInit(): void {}
+  @Output() editProject = new EventEmitter();
+  @Output() startProject = new EventEmitter<string>();
+  @Output() completeProject = new EventEmitter();
+  @Output() removeProject = new EventEmitter();
 }

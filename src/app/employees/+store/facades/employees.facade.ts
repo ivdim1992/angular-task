@@ -17,20 +17,4 @@ export class EmployeesStoreFacade {
   public getEmployees() {
     this.store.dispatch(EmployeesActions.getEmployees());
   }
-
-  //   public getVehiclesAggregates() {
-  //     this.store.dispatch(VehicleListActions.getAggregates());
-  //   }
-
-  //   public getVehicleTypes() {
-  //     this.store.dispatch(VehicleListActions.getVehicleTypes());
-  //   }
-
-  //   public getTerminals() {
-  //     this.store.dispatch(VehicleListActions.getTerminals());
-  //   }
-
-  //   public clear() {
-  //     this.store.dispatch(VehicleListActions.clearVehicleList());
-  //   }
 }

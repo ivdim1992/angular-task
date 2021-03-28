@@ -3,6 +3,7 @@ import { createAction, props } from '@ngrx/store';
 
 // API
 export const getProjects = createAction('[Projects Module] Get Projects');
+export const createProject = createAction('[Projects Module] Create Project', props<{ project }>());
 
 // Successfully
 export const getProjectsSuccess = createAction(

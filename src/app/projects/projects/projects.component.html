@@ -1,5 +1,5 @@
 <div class="revenue" fxLayout="row" fxLayoutAlign="space-between center">
-  <button class="create-btn" mat-stroked-button>Create Project</button>
+  <button class="create-btn" (click)="onCreateProject()" mat-stroked-button>Create Project</button>
   <div>Revenue: {{ projects$ | async | calculateRevenue | currency: 'USD' }}</div>
 </div>
 <div class="projects-dashboard" fxLayout="row wrap" fxLayoutAlign="space-between start">
@@ -7,15 +7,27 @@
     [title]="projectStatus.NEW"
     [projects]="projects$ | async | projectStatus: projectStatus.NEW"
     fxFlex="1 1 30%"
+    (removeProject)="onRemove($event)"
+    (completeProject)="onComplete($event)"
+    (startProject)="onStart($event)"
+    (editProject)="onEdit($event)"
   ></app-projects-list>
   <app-projects-list
     [title]="projectStatus.IN_PROGRESS"
     [projects]="projects$ | async | projectStatus: projectStatus.IN_PROGRESS"
     fxFlex="1 1 30%"
+    (removeProject)="onRemove($event)"
+    (completeProject)="onComplete($event)"
+    (startProject)="onStart($event)"
+    (editProject)="onEdit($event)"
   ></app-projects-list>
   <app-projects-list
     [title]="projectStatus.COMPLETED"
     [projects]="projects$ | async | projectStatus: projectStatus.COMPLETED"
     fxFlex="1 1 30%"
+    (removeProject)="onRemove($event)"
+    (completeProject)="onComplete($event)"
+    (startProject)="onStart($event)"
+    (editProject)="onEdit($event)"
   ></app-projects-list>
 </div>
