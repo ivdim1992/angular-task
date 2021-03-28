@@ -24,29 +24,6 @@ const employeesReducers = createReducer(
       baseState.employees = action.employees;
     })
   )
-
-  //   on(fromActions.getUserCreationMetaSuccess, (state, { payload }) => ({
-  //     ...state,
-  //     loading: userCreationInfoInitialState.loading,
-  //     ...payload
-  //   })),
-
-  //   on(VehicleListActions.getAggregatesSuccess, (state, action) =>
-  //     produce(state, baseState => {
-  //       baseState.aggregates = action.aggregates;
-  //     })
-  //   ),
-  //   on(VehicleListActions.getVehicleTypesSuccess, (state, action) =>
-  //     produce(state, baseState => {
-  //       baseState.vehicleTypes = action.vehicleTypes;
-  //     })
-  //   ),
-  //   on(VehicleListActions.getTerminalsSuccess, (state, action) =>
-  //     produce(state, baseState => {
-  //       baseState.terminals = action.terminals;
-  //     })
-  //   ),
-  //   on(VehicleListActions.clearVehicleList, () => initialState)
 );
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { IEmployee } from './interfaces';
+import { IProject } from './interfaces';
 
 @Injectable({ providedIn: 'root' })
-export class EmployeesService {
+export class ProjectsService {
   constructor(private _fireStore: AngularFireDatabase) {}
   //   return this._fireStore.database.ref('projects').child('3').update({ name: 'updated' });
 
-  getEmployees(): Observable<IEmployee[]> {
-    return this._fireStore.list('employees').valueChanges() as Observable<IEmployee[]>;
+  getProjects(): Observable<IProject[]> {
+    return this._fireStore.list('projects').valueChanges() as Observable<IProject[]>;
   }
 
   // addEmployee(employee: IEmployee): Promise<any> {

@@ -1,1 +1,21 @@
-<div class="projects-dashboard"></div>
+<div class="revenue" fxLayout="row" fxLayoutAlign="space-between center">
+  <button class="create-btn" mat-stroked-button>Create Project</button>
+  <div>Revenue: {{ projects$ | async | calculateRevenue | currency: 'USD' }}</div>
+</div>
+<div class="projects-dashboard" fxLayout="row wrap" fxLayoutAlign="space-between start">
+  <app-projects-list
+    [title]="projectStatus.NEW"
+    [projects]="projects$ | async | projectStatus: projectStatus.NEW"
+    fxFlex="1 1 30%"
+  ></app-projects-list>
+  <app-projects-list
+    [title]="projectStatus.IN_PROGRESS"
+    [projects]="projects$ | async | projectStatus: projectStatus.IN_PROGRESS"
+    fxFlex="1 1 30%"
+  ></app-projects-list>
+  <app-projects-list
+    [title]="projectStatus.COMPLETED"
+    [projects]="projects$ | async | projectStatus: projectStatus.COMPLETED"
+    fxFlex="1 1 30%"
+  ></app-projects-list>
+</div>

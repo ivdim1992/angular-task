@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class EmployeesEffects {
-  public getVehicles$ = createEffect(() =>
+  public getEmployees$ = createEffect(() =>
     this.actions$.pipe(
       ofType(EmployeesActions.getEmployees),
       switchMap(() =>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsStoreFacade } from '../+store/facades';
+import { ProjectStatus } from '../enums';
 
 @Component({
   selector: 'app-projects',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-  constructor() {}
+  projectStatus = ProjectStatus;
+  projects$ = this._projectsStoreFacade.projects$;
+
+  constructor(private _projectsStoreFacade: ProjectsStoreFacade) {}
 
   ngOnInit(): void {}
 }

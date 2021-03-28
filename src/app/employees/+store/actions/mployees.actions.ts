@@ -16,7 +16,7 @@ export const updateEmployeeSuccess = createAction('[Employees Module] Update Emp
 
 // Failure
 export const getEmployeesFailure = createAction(
-  '[Employees Module] Update Employees Failure',
+  '[Employees Module] Get Employees Failure',
   props<{ error: { message: string } }>()
 );
 
