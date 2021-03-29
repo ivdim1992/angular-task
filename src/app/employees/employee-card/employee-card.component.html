@@ -1,24 +1,24 @@
 <div class="card">
   <div class="card__title" fxLayout="row" fxLayoutAlign="flex-start center">
     <span class="material-icons"> perm_identity </span>
-    <span class="card__title-name font-weight"> {{ employee.name }}</span>
+    <span class="card__title-name font-weight"> {{ employee?.name }}</span>
   </div>
-  <div class="card__content">Projects: {{ employee.projects }}</div>
+  <div class="card__content">Projects: {{ employee?.projects }}</div>
   <div class="card-actions">
     <button
       mat-button
       (click)="
         editEmployee.emit({
-          id: employee.id,
-          firstName: employee.firstName,
-          lastName: employee.lastName,
-          isInTheCompany: employee.isInTheCompany
+          id: employee?.id,
+          firstName: employee?.firstName,
+          lastName: employee?.lastName,
+          isInTheCompany: employee?.isInTheCompany
         })
       "
     >
       Edit
     </button>
-    <button *ngIf="!employee.isInTheCompany" mat-button color="warn" (click)="removeEmployee.emit(employee.id)">
+    <button *ngIf="!employee?.isInTheCompany" mat-button color="warn" (click)="removeEmployee.emit(employee.id)">
       Delete
     </button>
   </div>
