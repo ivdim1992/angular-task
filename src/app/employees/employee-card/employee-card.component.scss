@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  margin: 2rem;
+  width: 300px;
+  border: 1px solid #008ed1;
+}
+
+.card {
+  &__title,
+  &__content {
+    padding: 10px 16px;
+
+    &-name {
+      margin-left: 10px;
+    }
+  }
+}

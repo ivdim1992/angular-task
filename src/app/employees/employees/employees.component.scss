@@ -1,0 +1,10 @@
+@import 'abstract/colors';
+
+.employee-create {
+  padding: 2rem 3rem;
+
+  .create-btn {
+    color: $primary-color;
+    background-color: $light;
+  }
+}

@@ -1,0 +1,21 @@
+@import 'abstract/colors';
+
+.create-project-form {
+  min-width: 300px;
+
+  .title-container {
+    padding: 2rem 0;
+  }
+  .title {
+    font-size: 2rem;
+  }
+
+  .create-btn {
+    color: $primary-color;
+    background-color: $light;
+  }
+
+  button[disabled] {
+    opacity: 0.3;
+  }
+}

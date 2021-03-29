@@ -9,6 +9,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { CreateProjectDialogComponent } from './create-project-dialog/create-project-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { EditProjectDialogComponent } from './edit-project-dialog/edit-project-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +24,21 @@ import { MatButtonModule } from '@angular/material/button';
     ProjectStatusPipe,
     ProjectCardComponent,
     CalculateRevenuePipe,
+    CreateProjectDialogComponent,
+    EditProjectDialogComponent,
   ],
-  imports: [CommonModule, ProjectsRoutingModule, ProjectsStoreModule, FlexLayoutModule, MatCardModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    ProjectsRoutingModule,
+    ProjectsStoreModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatInputModule,
+  ],
 })
 export class ProjectsModule {}

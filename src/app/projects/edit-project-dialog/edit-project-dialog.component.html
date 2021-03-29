@@ -1,0 +1,19 @@
+<form [formGroup]="assignEmployeeFrom" fxLayout="column" class="create-project-form">
+  <div class="title-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <span class="title">Assign Employee</span>
+    <span class="material-icons cursor-pointer" (click)="onClose()"> close </span>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Employee</mat-label>
+    <mat-select placeholder="Employee" formControlName="employee">
+      <mat-option *ngFor="let employee of data.employees | async" [value]="{ id: employee.id, name: employee.name }">{{
+        employee.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="create-btn" [disabled]="!assignEmployeeFrom.valid" (click)="onAssign()" mat-raised-button>
+    Assign
+  </button>
+</form>

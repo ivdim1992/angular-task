@@ -5,6 +5,8 @@ import { Store, select } from '@ngrx/store';
 import * as fromEmployeesReducer from '../reducers';
 import { EmployeesActions } from '../actions';
 import { EmployeesSelectors } from '../selectors';
+import { IEmployee } from '@app/employees/interfaces';
+import { EmployeesService } from '@app/employees';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeesStoreFacade {
@@ -17,20 +19,4 @@ export class EmployeesStoreFacade {
   public getEmployees() {
     this.store.dispatch(EmployeesActions.getEmployees());
   }
-
-  //   public getVehiclesAggregates() {
-  //     this.store.dispatch(VehicleListActions.getAggregates());
-  //   }
-
-  //   public getVehicleTypes() {
-  //     this.store.dispatch(VehicleListActions.getVehicleTypes());
-  //   }
-
-  //   public getTerminals() {
-  //     this.store.dispatch(VehicleListActions.getTerminals());
-  //   }
-
-  //   public clear() {
-  //     this.store.dispatch(VehicleListActions.clearVehicleList());
-  //   }
 }

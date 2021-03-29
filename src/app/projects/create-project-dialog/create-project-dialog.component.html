@@ -1,0 +1,26 @@
+<form [formGroup]="createProjectFrom" fxLayout="column" class="create-project-form">
+  <div class="title-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <span class="title">Create Project</span>
+    <span class="material-icons cursor-pointer" (click)="onClose()"> close </span>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Price</mat-label>
+    <input matInput placeholder="Price" formControlName="price" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <mat-select placeholder="Status" formControlName="status">
+      <mat-option value="new">New</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="create-btn" [disabled]="!createProjectFrom.valid" (click)="onCreate()" mat-raised-button>
+    Create
+  </button>
+</form>

@@ -2,5 +2,12 @@
   <div class="title">
     <h2 class="text-center">{{ title | uppercase }}</h2>
   </div>
-  <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
+  <app-project-card
+    (removeProject)="removeProject.emit($event)"
+    (completeProject)="completeProject.emit($event)"
+    (startProject)="startProject.emit($event)"
+    (editProject)="editProject.emit($event)"
+    *ngFor="let project of projects"
+    [project]="project"
+  ></app-project-card>
 </section>
