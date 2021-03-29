@@ -1,11 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { ComponentFixture } from '@angular/core/testing';
 
-// Shared fixture
-let fixture: ComponentFixture<any>;
+import { DebugElement } from '@angular/core';
+export const ButtonClickEvents = {
+  left: { button: 0 },
+  right: { button: 2 },
+};
 
-export function selectElement<T = HTMLElement>(selector: string): T {
-  return fixture.nativeElement.querySelector(selector);
+export function click(el: DebugElement | HTMLElement, eventObj: any = ButtonClickEvents.left): void {
+  if (el instanceof HTMLElement) {
+    el.click();
+  } else {
+    el.triggerEventHandler('click', eventObj);
+  }
 }

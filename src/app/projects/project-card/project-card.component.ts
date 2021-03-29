@@ -23,7 +23,7 @@ export class ProjectCardComponent {
   projectStatus = ProjectStatus;
 
   yearsInInThePast(): boolean {
-    const pastYears = moment(new Date(), 'YYYY-MM-DD').diff(new Date(this.project.createdAt), 'years');
+    const pastYears = moment(new Date(), 'YYYY-MM-DD').diff(new Date(this.project?.createdAt), 'years');
     return pastYears > 5 ? true : false;
   }
 }
