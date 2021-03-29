@@ -9,12 +9,6 @@ const getRouterSnapshot = createSelector(getRouterState, (routerReducerState) =>
 
 const selectBaseURL = createSelector(getRouterSnapshot, (state) => state.url.split('?')[0]);
 
-const selectQueryParams = createSelector(getRouterSnapshot, (state) => {
-  const { backRoute, ...params } = state.queryParams;
-
-  return params;
-});
-
 const selectQueryParamsWithBackRoute = createSelector(getRouterSnapshot, (state) => state.queryParams);
 
 const selectRouteParams = createSelector(getRouterSnapshot, (state) => state.params);
@@ -23,7 +17,6 @@ export const RouterStoreSelectors = {
   getRouterSnapshot,
   getRouterState,
   selectBaseURL,
-  selectQueryParams,
   selectRouteParams,
   selectQueryParamsWithBackRoute,
 };

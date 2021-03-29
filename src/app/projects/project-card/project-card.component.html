@@ -14,7 +14,7 @@
       Edit
     </button>
     <button
-      *ngIf="yearsInInThePast() && project.status !== projectStatus.IN_PROGRESS"
+      *ngIf="yearsInInThePast() || project.status === projectStatus.NEW"
       mat-button
       (click)="removeProject.emit(project.id)"
       color="warn"

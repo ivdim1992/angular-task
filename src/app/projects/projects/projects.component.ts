@@ -32,24 +32,22 @@ export class ProjectsComponent {
     dialogRef
       .afterClosed()
       .pipe(filter((value) => !!value))
-      .subscribe((project) => {
-        this._projectsStoreFacade.createProject(project);
-      });
+      .subscribe((project) => this._projectsStoreFacade.createProject(project));
   }
 
-  onRemove(id: string) {
-    this._projectsStoreFacade.removeProject(id);
+  onRemove(id: string): void {
+    return this._projectsStoreFacade.removeProject(id);
   }
 
-  onComplete(id: string) {
-    this._projectsStoreFacade.startProject(id, this.projectStatus.COMPLETED);
+  onComplete(id: string): void {
+    return this._projectsStoreFacade.startProject(id, this.projectStatus.COMPLETED);
   }
 
-  onStart(id: string) {
-    this._projectsStoreFacade.startProject(id, this.projectStatus.IN_PROGRESS);
+  onStart(id: string): void {
+    return this._projectsStoreFacade.startProject(id, this.projectStatus.IN_PROGRESS);
   }
 
-  onEdit(data: IEditDTO) {
+  onEdit(data: IEditDTO): void {
     const dialogRef = this._dialog.open(EditProjectDialogComponent, {
       data: { employees: this.employees$ },
       disableClose: true,

@@ -5,39 +5,30 @@ import { filter } from 'rxjs/operators';
 import { EmployeesStoreFacade } from '../+store/facades';
 import { CreateEmployeeDialogComponent } from '../create-employee-dialog/create-employee-dialog.component';
 import { IEditEmployeeDTO } from '../employee-card/employee-card.component';
-import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.scss'],
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesComponent {
   employees$ = this._employeesStoreFacade.employees$;
 
-  constructor(
-    private _employeesStoreFacade: EmployeesStoreFacade,
-    private _dialog: MatDialog,
-    private _employeesService: EmployeesService
-  ) {}
+  constructor(private _employeesStoreFacade: EmployeesStoreFacade, private _dialog: MatDialog) {}
 
-  ngOnInit(): boolean {
-    return true;
-  }
-
-  onCreateEmployee() {
+  onCreateEmployee(): void {
     const dialogRef = this._dialog.open(CreateEmployeeDialogComponent, { data: { isEdit: false }, disableClose: true });
     dialogRef
       .afterClosed()
       .pipe(filter((value) => !!value))
-      .subscribe((employee) => this._employeesService.createEmployee(employee));
+      .subscribe((employee) => this._employeesStoreFacade.createEmployee(employee));
   }
 
-  onRemoveEmployee(id: string) {
-    return this._employeesService.removeEmployee(id);
+  onRemoveEmployee(id: string): void {
+    return this._employeesStoreFacade.removeEmployee(id);
   }
 
-  onEditEmployee(data: IEditEmployeeDTO) {
+  onEditEmployee(data: IEditEmployeeDTO): void {
     const dialogRef = this._dialog.open(CreateEmployeeDialogComponent, {
       data: { isEdit: true, employee: data },
       disableClose: true,
@@ -46,7 +37,7 @@ export class EmployeesComponent implements OnInit {
       .afterClosed()
       .pipe(filter((value) => !!value))
       .subscribe((employee) => {
-        return this._employeesService.editEmployee(data.id, employee);
+        return this._employeesStoreFacade.updateEmployee(data.id, employee);
       });
   }
 }

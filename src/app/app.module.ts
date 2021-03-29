@@ -11,7 +11,6 @@ import { RootStoreModule } from './+store';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SideNavModule } from './resources/side-nav';
 import { ProjectsModule } from './projects/projects.module';
-import { EmployeesModule } from './employees';
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [
@@ -23,8 +22,6 @@ import { EmployeesModule } from './employees';
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     SideNavModule,
-    ProjectsModule,
-    EmployeesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
