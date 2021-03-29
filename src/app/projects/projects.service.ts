@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as moment from 'moment';
@@ -7,7 +11,6 @@ import { IProject } from './interfaces';
 @Injectable({ providedIn: 'root' })
 export class ProjectsService {
   constructor(private _fireStore: AngularFireDatabase) {}
-  //   return this._fireStore.database.ref('projects').child('3').update({ name: 'updated' });
 
   getProjects(): Observable<IProject[]> {
     return this._fireStore.list('projects').valueChanges() as Observable<IProject[]>;
@@ -30,7 +33,8 @@ export class ProjectsService {
     return this._fireStore.list('projects').remove(id);
   }
 
-  assignEmployee(id: string, employee: string) {
-    return this._fireStore.list('projects').update(id, { employees: [employee] });
+  assignEmployee(id: string, projectName: string, employee: { id: string; name: string }) {
+    this._fireStore.list('employees').update(employee.id, { projects: [projectName] });
+    this._fireStore.list('projects').update(id, { employees: [employee.name] });
   }
 }

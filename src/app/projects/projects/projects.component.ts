@@ -9,6 +9,7 @@ import { CreateProjectDialogComponent } from '../create-project-dialog/create-pr
 import { filter } from 'rxjs/operators';
 import { EditProjectDialogComponent } from '../edit-project-dialog/edit-project-dialog.component';
 import { EmployeesStoreFacade } from '@app/employees/+store/facades';
+import { IEditDTO } from '../project-card/project-card.component';
 
 @Component({
   selector: 'app-projects',
@@ -48,7 +49,7 @@ export class ProjectsComponent {
     this._projectsStoreFacade.startProject(id, this.projectStatus.IN_PROGRESS);
   }
 
-  onEdit(id: string) {
+  onEdit(data: IEditDTO) {
     const dialogRef = this._dialog.open(EditProjectDialogComponent, {
       data: { employees: this.employees$ },
       disableClose: true,
@@ -57,6 +58,6 @@ export class ProjectsComponent {
     dialogRef
       .afterClosed()
       .pipe(filter((value) => !!value))
-      .subscribe((value) => this._projectsStoreFacade.assignEmployee(id, value.employee));
+      .subscribe((value) => this._projectsStoreFacade.assignEmployee(data.id, data.name, value.employee));
   }
 }

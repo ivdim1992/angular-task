@@ -29,7 +29,5 @@ export class AppComponent implements OnInit {
     console.log(tutRef);
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-
-    // /google.firestore.v1.Firestore/Listen/channel?database=projects%2Fangular-project-task%2Fdatabases%2F(default)&gsessionid=jKiy4pAVPhqvKOgQT0dx3VhyyaEngSQZqS52bX0amCI&VER=8&RID=rpc&SID=qrh0_X-aIDT19IFwKACF3A&CI=0&AID=514&TYPE=xmlhttp&zx=tclsjci7mjjv&t=
   }
 }

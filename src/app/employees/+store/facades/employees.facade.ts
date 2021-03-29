@@ -5,6 +5,8 @@ import { Store, select } from '@ngrx/store';
 import * as fromEmployeesReducer from '../reducers';
 import { EmployeesActions } from '../actions';
 import { EmployeesSelectors } from '../selectors';
+import { IEmployee } from '@app/employees/interfaces';
+import { EmployeesService } from '@app/employees';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeesStoreFacade {

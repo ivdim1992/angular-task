@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card>
   <mat-card-content>
     <div class="name">Name: {{ project?.name }}</div>
     <div class="status">Status: {{ project?.status }}</div>
@@ -6,7 +6,11 @@
     <div class="status">Employee: {{ project?.employees }}</div>
   </mat-card-content>
   <mat-card-actions>
-    <button *ngIf="project.status !== projectStatus.COMPLETED" mat-button (click)="editProject.emit(project.id)">
+    <button
+      *ngIf="project.status !== projectStatus.COMPLETED"
+      mat-button
+      (click)="editProject.emit({ name: project.name, id: project.id })"
+    >
       Edit
     </button>
     <button

@@ -3,6 +3,10 @@ import * as moment from 'moment';
 import { ProjectStatus } from '../enums';
 import { IProject } from '../interfaces';
 
+export interface IEditDTO {
+  id: string;
+  name: string;
+}
 @Component({
   selector: 'app-project-card',
   templateUrl: './project-card.component.html',
@@ -11,7 +15,7 @@ import { IProject } from '../interfaces';
 })
 export class ProjectCardComponent {
   @Input() project: IProject;
-  @Output() editProject = new EventEmitter();
+  @Output() editProject = new EventEmitter<IEditDTO>();
   @Output() startProject = new EventEmitter<string>();
   @Output() completeProject = new EventEmitter();
   @Output() removeProject = new EventEmitter();

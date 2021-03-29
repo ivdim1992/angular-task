@@ -1,4 +1,11 @@
-<p>employees works!</p>
-<div *ngFor="let employee of employees$ | async">
-  {{ employee.name }}
+<div class="employee-create">
+  <button class="create-btn" (click)="onCreateEmployee()" mat-stroked-button>Create Employee</button>
+</div>
+<div class="employees" fxLayout="row wrap" fxLayoutAlign="flex-start flex-start">
+  <app-employee-card
+    *ngFor="let employee of employees$ | async"
+    [employee]="employee"
+    (removeEmployee)="onRemoveEmployee($event)"
+    (editEmployee)="onEditEmployee($event)"
+  ></app-employee-card>
 </div>

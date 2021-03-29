@@ -39,7 +39,7 @@ export class ProjectsStoreFacade {
     this._projectService.removeProject(id);
   }
 
-  public assignEmployee(id: string, employee: string) {
-    this._projectService.assignEmployee(id, employee);
+  public assignEmployee(id: string, projectName: string, employee: { id: string; name: string }) {
+    this._projectService.assignEmployee(id, projectName, employee);
   }
 }

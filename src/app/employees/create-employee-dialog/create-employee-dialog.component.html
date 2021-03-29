@@ -1,0 +1,27 @@
+<form [formGroup]="createEmployeeForm" fxLayout="column" class="create-project-form">
+  <div class="title-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <span class="title"> {{ data.isEdit ? 'Edit Employee' : 'Create Employee' }}</span>
+    <span class="material-icons cursor-pointer" (click)="onClose()"> close </span>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" formControlName="firstName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" formControlName="lastName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Is In The Company</mat-label>
+    <mat-select placeholder="Is In The Company" formControlName="isInTheCompany">
+      <mat-option [value]="true">Yes</mat-option>
+      <mat-option *ngIf="data.isEdit" [value]="false">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="create-btn" [disabled]="!createEmployeeForm.valid" (click)="onCreate()" mat-raised-button>
+    {{ data.isEdit ? 'Edit' : 'Create' }}
+  </button>
+</form>
