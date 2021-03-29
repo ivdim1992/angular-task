@@ -29,7 +29,12 @@
     >
       Start
     </button>
-    <button *ngIf="project.status === projectStatus.IN_PROGRESS" mat-button (click)="completeProject.emit(project.id)">
+    <button
+      class="completeBtn"
+      *ngIf="project.status === projectStatus.IN_PROGRESS"
+      mat-button
+      (click)="completeProject.emit(project.id)"
+    >
       Complete
     </button>
   </mat-card-actions>

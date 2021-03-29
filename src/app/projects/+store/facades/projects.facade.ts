@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import * as fromProjectsReducer from '../reducers';
 import { Injectable } from '@angular/core';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store, select } from '@ngrx/store';
-import * as fromProjectsReducer from '../reducers';
 import { ProjectsActions } from '../actions';
 import { ProjectsSelectors } from '../selectors';
-import { ProjectsService } from '@app/projects/projects.service';
 import { IProject } from '@app/projects/interfaces';
 
 @Injectable({ providedIn: 'root' })
@@ -15,11 +14,7 @@ export class ProjectsStoreFacade {
 
   public readonly getProjectsSuccess$ = this.actions$.pipe(ofType(ProjectsActions.getProjectsSuccess));
 
-  constructor(
-    private readonly actions$: Actions,
-    private readonly store: Store<fromProjectsReducer.State>,
-    private _projectService: ProjectsService
-  ) {}
+  constructor(private readonly actions$: Actions, private readonly store: Store<fromProjectsReducer.State>) {}
 
   public getProjects() {
     this.store.dispatch(ProjectsActions.getProjects());

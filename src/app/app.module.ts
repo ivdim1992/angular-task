@@ -10,7 +10,6 @@ import { environment } from '@env/environment';
 import { RootStoreModule } from './+store';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SideNavModule } from './resources/side-nav';
-import { ProjectsModule } from './projects/projects.module';
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [

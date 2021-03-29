@@ -27,14 +27,14 @@ export class EditProjectDialogComponent implements OnInit {
     });
   }
 
-  onAssign() {
+  onAssign(): void {
     const value = this.assignEmployeeFrom.value;
     this.dialogRef.close({
       employee: value.employee,
     });
   }
 
-  onClose() {
+  onClose(): void {
     this.dialogRef.close();
   }
 }

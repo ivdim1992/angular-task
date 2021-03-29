@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,12 +20,12 @@ export class CreateProjectDialogComponent implements OnInit {
   ngOnInit(): void {
     this.createProjectFrom = this.formBuilder.group({
       name: this.formBuilder.control('', [Validators.required]),
-      price: this.formBuilder.control('', [Validators.required]),
+      price: this.formBuilder.control('', [Validators.required, Validators.pattern('^[0-9]*$')]),
       status: this.formBuilder.control('', Validators.required),
     });
   }
 
-  onCreate() {
+  onCreate(): void {
     const value = this.createProjectFrom.value;
     this.dialogRef.close({
       name: value.name,
@@ -35,7 +34,7 @@ export class CreateProjectDialogComponent implements OnInit {
     });
   }
 
-  onClose() {
+  onClose(): void {
     this.dialogRef.close();
   }
 }

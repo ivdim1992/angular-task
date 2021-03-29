@@ -17,8 +17,9 @@ export class ProjectCardComponent {
   @Input() project: IProject;
   @Output() editProject = new EventEmitter<IEditDTO>();
   @Output() startProject = new EventEmitter<string>();
-  @Output() completeProject = new EventEmitter();
-  @Output() removeProject = new EventEmitter();
+  @Output() completeProject = new EventEmitter<string>();
+  @Output() removeProject = new EventEmitter<string>();
+
   projectStatus = ProjectStatus;
 
   yearsInInThePast(): boolean {

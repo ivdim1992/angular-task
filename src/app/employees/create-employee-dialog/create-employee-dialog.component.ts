@@ -31,7 +31,7 @@ export class CreateEmployeeDialogComponent implements OnInit {
     });
   }
 
-  onCreate() {
+  onCreate(): void {
     const value = this.createEmployeeForm.value;
     this.dialogRef.close({
       firstName: value.firstName,
@@ -41,7 +41,7 @@ export class CreateEmployeeDialogComponent implements OnInit {
     });
   }
 
-  onClose() {
+  onClose(): void {
     this.dialogRef.close();
   }
 }

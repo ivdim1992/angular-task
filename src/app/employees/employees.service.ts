@@ -18,7 +18,6 @@ export class EmployeesService {
       ...employee,
       id: key,
     });
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return from(request);
   }
 
