@@ -1,20 +1,22 @@
 <mat-card>
   <mat-card-content>
-    <div class="name">Name: {{ project?.name }}</div>
-    <div class="status">Status: {{ project?.status }}</div>
-    <div class="status">Price: {{ project?.price | currency: 'USD' }}</div>
-    <div class="status">Employee: {{ project?.employees }}</div>
+    <div id="name">Name: {{ project?.name }}</div>
+    <div id="status">Status: {{ project?.status }}</div>
+    <div id="price">Price: {{ project?.price | currency: 'USD' }}</div>
+    <div id="employees">Employee: {{ project?.employees }}</div>
   </mat-card-content>
   <mat-card-actions>
     <button
-      *ngIf="project.status !== projectStatus.COMPLETED"
+      *ngIf="project?.status !== projectStatus.COMPLETED"
+      id="editBtn"
       mat-button
-      (click)="editProject.emit({ name: project.name, id: project.id })"
+      (click)="editProject.emit({ name: project?.name, id: project?.id })"
     >
       Edit
     </button>
     <button
-      *ngIf="yearsInInThePast() && project.status !== projectStatus.IN_PROGRESS"
+      *ngIf="yearsInInThePast() || project?.status === projectStatus.NEW"
+      id="deleteBtn"
       mat-button
       (click)="removeProject.emit(project.id)"
       color="warn"
@@ -22,14 +24,21 @@
       Delete
     </button>
     <button
-      *ngIf="project.status === projectStatus.NEW"
+      *ngIf="project?.status === projectStatus.NEW"
+      id="startBtn"
       mat-button
       (click)="startProject.emit(project.id)"
       color="accent"
     >
       Start
     </button>
-    <button *ngIf="project.status === projectStatus.IN_PROGRESS" mat-button (click)="completeProject.emit(project.id)">
+    <button
+      *ngIf="project?.status === projectStatus.IN_PROGRESS"
+      class="completeBtn"
+      id="completeBtn"
+      mat-button
+      (click)="completeProject.emit(project.id)"
+    >
       Complete
     </button>
   </mat-card-actions>

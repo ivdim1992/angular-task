@@ -18,7 +18,7 @@ export class EditProjectDialogComponent implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     public readonly dialogRef: MatDialogRef<EditProjectDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { employees: Observable<IEmployee[]> }
+    @Inject(MAT_DIALOG_DATA) public data: { employees: IEmployee[] }
   ) {}
 
   ngOnInit(): void {
@@ -27,14 +27,14 @@ export class EditProjectDialogComponent implements OnInit {
     });
   }
 
-  onAssign() {
+  onAssign(): void {
     const value = this.assignEmployeeFrom.value;
     this.dialogRef.close({
       employee: value.employee,
     });
   }
 
-  onClose() {
+  onClose(): void {
     this.dialogRef.close();
   }
 }

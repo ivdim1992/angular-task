@@ -7,7 +7,6 @@ import { Store } from '@ngrx/store';
 export class RouterStoreFacade {
   public snapshot$ = this.store.select(RouterStoreSelectors.getRouterSnapshot);
   public baseURL$ = this.store.select(RouterStoreSelectors.selectBaseURL);
-  public queryParams$ = this.store.select(RouterStoreSelectors.selectQueryParams);
   public queryParamsWithBackRoute$ = this.store.select(RouterStoreSelectors.selectQueryParamsWithBackRoute);
   public params$ = this.store.select(RouterStoreSelectors.selectRouteParams);
 

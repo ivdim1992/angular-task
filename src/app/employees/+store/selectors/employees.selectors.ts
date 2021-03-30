@@ -5,4 +5,4 @@ export const employeesKey = 'employees';
 
 export const selectFeature = createFeatureSelector<fromEmployeesReducer.IEmployeeStore>(employeesKey);
 
-export const selectEmployees = createSelector(selectFeature, (state) => state.employees);
+export const selectEmployees = createSelector(selectFeature, (state) => (state ? state.employees : null));

@@ -6,7 +6,6 @@ import * as fromEmployeesReducer from '../reducers';
 import { EmployeesActions } from '../actions';
 import { EmployeesSelectors } from '../selectors';
 import { IEmployee } from '@app/employees/interfaces';
-import { EmployeesService } from '@app/employees';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeesStoreFacade {
@@ -18,5 +17,17 @@ export class EmployeesStoreFacade {
 
   public getEmployees() {
     this.store.dispatch(EmployeesActions.getEmployees());
+  }
+
+  public createEmployee(employee: IEmployee) {
+    this.store.dispatch(EmployeesActions.addEmployee({ employee }));
+  }
+
+  public removeEmployee(id: string) {
+    this.store.dispatch(EmployeesActions.removeEmployee({ id }));
+  }
+
+  public updateEmployee(id: string, employee: IEmployee) {
+    this.store.dispatch(EmployeesActions.updateEmployee({ id, employee }));
   }
 }

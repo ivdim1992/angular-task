@@ -9,12 +9,12 @@ const routes: Routes = [
     redirectTo: 'employees',
   },
   {
-    path: 'projects',
-    loadChildren: () => import('./projects/projects.module').then((m) => m.ProjectsModule),
-  },
-  {
     path: 'employees',
     loadChildren: () => import('./employees/employees.module').then((m) => m.EmployeesModule),
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('./projects/projects.module').then((m) => m.ProjectsModule),
   },
   {
     path: '**',

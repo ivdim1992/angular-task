@@ -1,2 +1,2 @@
-import * as EmployeesActions from './mployees.actions';
+import * as EmployeesActions from './employees.actions';
 export { EmployeesActions };

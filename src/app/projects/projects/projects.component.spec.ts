@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EmployeesStoreFacade } from '@app/employees/+store/facades';
+import { ProjectsStoreFacade } from '../+store/facades';
 
 import { ProjectsComponent } from './projects.component';
 
@@ -8,9 +11,9 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ]
-    })
-    .compileComponents();
+      declarations: [ProjectsComponent],
+      providers: [ProjectsStoreFacade, EmployeesStoreFacade],
+    }).compileComponents();
   });
 
   beforeEach(() => {
