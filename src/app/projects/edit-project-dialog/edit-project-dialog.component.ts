@@ -18,7 +18,7 @@ export class EditProjectDialogComponent implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     public readonly dialogRef: MatDialogRef<EditProjectDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { employees: Observable<IEmployee[]> }
+    @Inject(MAT_DIALOG_DATA) public data: { employees: IEmployee[] }
   ) {}
 
   ngOnInit(): void {

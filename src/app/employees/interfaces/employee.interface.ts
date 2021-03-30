@@ -5,5 +5,5 @@ export interface IEmployee extends IBaseEntity {
   lastName: string;
   name: string;
   isInTheCompany: boolean;
-  projects: string[];
+  projects: string;
 }
